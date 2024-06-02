@@ -16,5 +16,19 @@ public class InheritanceDemo {
 		
 		// call getters and try to display records
 		
+//		
+//		One o = new One(); // object of parent class 
+//		o.a = 8;
+//		o.display();
+		
+		Three t = new Three(); // object of child class
+
+		//t.a=8;
+		//t.display();
+		
+		//t.printMessage();	// method of parent class
+				
+			
+		
 	}
 }

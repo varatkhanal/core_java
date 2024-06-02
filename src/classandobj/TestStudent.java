@@ -1,11 +1,11 @@
 package classandobj;
 
 public class TestStudent{
-	public void testAge(Student a, Student std_sec) {
-		if(a.age>std_sec.age) {
-			System.out.println("student "+a.getName()+" is older");
+	public Student testAge(Student a, Student std_sec) {
+		if(a.getAge()>std_sec.getAge()) {
+			return a;
 		}else{
-			System.out.println("student "+std_sec.getName()+"is older");
+			return std_sec;
 
 		}
 	}

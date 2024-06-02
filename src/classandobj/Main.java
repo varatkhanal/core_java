@@ -24,7 +24,9 @@ public class Main{
 		std_sec.display("second");
 		
 		TestStudent ts = new TestStudent();
-		ts.testAge(std,std_sec);
+		Student ss = ts.testAge(std,std_sec);
+		
+		System.out.println("student "+ss.toString()+" is older");
 	}
 }		
 		

@@ -2,8 +2,6 @@ package abstractDemo;
 
 import java.util.Scanner;
 
-import bod.BBADepartment;
-
 public class AbstractDemo {
 
 	public static void main(String[] args) {
@@ -12,17 +10,20 @@ public class AbstractDemo {
 		//ApexBOD a = new ApexBOD();
 		
 		//Scanner scan = new Scanner(System.in);
+		PokharaUniversity.display();
+		//PokharaUniversity.show();
 		
-		BCSITDepartment bcsitDepart = new BCSITDepartment();
-		bcsitDepart.attendance();
-		bcsitDepart.labEvaluation();
-		bcsitDepart.summerProject();
+		PokharaUniversity bachelorProgram = new BCSITDepartment();
+		bachelorProgram.attendance();
+		//bcsitDepart.labEvaluation();
+		bachelorProgram.summerProject();
+		bachelorProgram.show();
 		//bcsitDepart.toString();
 		
-		BBADepartment bbaDepart = new BBADepartment();
-		//bbaDepart.attendance();
-		bbaDepart.internalAssesment();
-		bbaDepart.summerProject();
+		bachelorProgram = new BBADepartment();
+		bachelorProgram.attendance();
+		//bbaDepart.internalAssesment();
+		bachelorProgram.summerProject();
 	}
 
 }

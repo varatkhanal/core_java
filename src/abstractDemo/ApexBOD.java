@@ -1,8 +1,8 @@
 package abstractDemo;
 
-public abstract class ApexBOD {
+public abstract class ApexBOD implements PokharaUniversity{
 	
-	void attendance() {
+	public void attendance() {
 		System.out.println("Coure curriculam demands 80% attendance");
 		
 	}

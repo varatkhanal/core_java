@@ -1,6 +1,11 @@
 package swing;
 
-import java.io.*;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.BufferedWriter;
+import java.io.BufferedReader;
+import java.io.File;
+
 import java.util.*;
 
 
@@ -12,6 +17,10 @@ public class FileOperation{
 	public static void writeFile(User user){
 		try{
 		BufferedWriter bw=new BufferedWriter(new FileWriter(file,true));
+		
+//		ObjectOutput objOutput = new ObjectOutputStream(new FileOutputStream(file,true))
+//				objOutput.writeObject(user);
+//		
 		
 		String tempFirstName= user.getFirstName();
 		String tempLastName= user.getSecondName();

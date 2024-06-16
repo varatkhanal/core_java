@@ -1,6 +1,4 @@
-package bod;
-
-import abstractDemo.ApexBOD;
+package abstractDemo;
 
 public class BBADepartment extends ApexBOD{
 	

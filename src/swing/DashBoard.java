@@ -21,8 +21,6 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-
-
 public class DashBoard implements ActionListener{
 	
 	JButton btnAdd;
@@ -74,6 +72,8 @@ public class DashBoard implements ActionListener{
 		rg.add(radioMale);
 		rg.add(radioFemale);
 		
+		
+		
 		//String programs[] = {"BBA","BBA-TT","BCIS","BBA-BI"};
 		String section[] = {"Maxthon","Mozilla","Deism","Divine","Enum","Efika","Fusion","Fourier","Grit","Garnet"};
 		
@@ -102,6 +102,8 @@ public class DashBoard implements ActionListener{
 			}
 			
 		});
+		
+	
 		
 		
 		
@@ -215,11 +217,17 @@ public class DashBoard implements ActionListener{
 			
 			FileOperation.writeFile(user);
 			try {
+				
+				
 				Writer writer = new FileWriter("E://teaching//StudentInfo.txt",true);
 				//write username and password to a file
 				writer.write(fName+"\t"+lName+"\t"+gender+"\t"+program+"\t"+section+"\t"+book+"\n");
 				writer.flush();
-				writer.close();				
+				writer.close();	
+				
+				//database read write
+				
+				
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -240,6 +248,8 @@ public class DashBoard implements ActionListener{
 				program=credintials[3];
 				section=credintials[4];				
 			    JOptionPane.showMessageDialog(null,fname+"\t"+lname+"\t"+gender+"\t"+program+"\t"+section,"Status",JOptionPane.INFORMATION_MESSAGE);										
+			    
+			    
 			    DisplayTable dt = new DisplayTable();
 			    
 			} catch (FileNotFoundException e1) {

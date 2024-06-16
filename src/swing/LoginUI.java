@@ -21,7 +21,6 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-
 public class LoginUI{
 	JTextField userNameField;
 	JTextField passwordField;

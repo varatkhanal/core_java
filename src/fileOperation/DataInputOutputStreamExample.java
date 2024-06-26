@@ -12,28 +12,37 @@ public class DataInputOutputStreamExample {
 	public static void main(String[] args){
 		try {	
 			File file= new File("E:\\rand_file.dat");
+			
+			System.out.println(file.length());
+			
 			FileOutputStream fout = new FileOutputStream(file);
 			DataOutputStream dos = new DataOutputStream(fout);
+			int eid = 5;
+			String name = "suman";
+			String address = "pepsi cola";
+			int age = 21;
+			
 			dos.writeInt(5);
-			dos.writeLong(55);
-			dos.writeFloat(5.6f);
-			dos.writeChar('b');
-			dos.writeBoolean(false);
+			dos.writeChars(name);
+			dos.writeChars(address);
+			dos.writeInt(age);
 			dos.close();
 			
-			FileInputStream fis = new FileInputStream("E:\\rand_file.dat");
+			FileInputStream fis = new FileInputStream(file);
 			DataInputStream dis = new DataInputStream(fis);
+			
+			byte[] b = new byte[name.length()*2];
 			int n= dis.readInt();
-			long l = dis.readLong();
-			float f = dis.readFloat();
-			char ch = dis.readChar();
-			boolean b = dis.readBoolean();
+			String f = Integer.toString(dis.read(b));
+			String l = Integer.toString(dis.read(b));
+			int a = dis.readInt();
 			dis.close(); 
 			
-System.out.println("integer :"+n+" long "+l+" decimal "+f+" character "+ch+" boolean "+b);		 
+			System.out.println("employee eid :"+n+" name "+l+" address "+f+" age "+a);		 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 }
+

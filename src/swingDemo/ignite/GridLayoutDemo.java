@@ -1,21 +1,21 @@
 package swingDemo.ignite;
 
 import java.awt.Color;
+import java.awt.GridLayout;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
-import javax.swing.border.Border;
+import javax.swing.*;
 
-public class FirstWindow {
-	
-	public static void main(String[] args) {
+public class GridLayoutDemo {
+	public GridLayoutDemo(){
 		JFrame frame = new JFrame("First Window"); //object of frame to be displayed in desktop		
 		frame.setSize(450,400);
 		//frame.setTitle("First Window");
 		frame.setLocationRelativeTo(null);
+		
+		GridLayout gridLayout = new GridLayout(3,2);
+		
+		
+		frame.setLayout(null); //to be  discussed later
 		
 		//objects of components
 		JButton btnLogin = new JButton("Login");	
@@ -43,9 +43,9 @@ public class FirstWindow {
 		frame.add(txtPass);
 		
 		//set layout and make visible
-		frame.setLayout(null); //to be  discussed later
-		frame.setVisible(true);	
+		frame.setVisible(true);
+	}
+	public static void main(String[] args) {
 		
 	}
-
 }

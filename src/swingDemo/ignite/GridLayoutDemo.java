@@ -7,12 +7,19 @@ import java.awt.Graphics;
 import java.awt.GraphicsConfiguration;
 import java.awt.GridLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
-public class GridLayoutDemo {
+public class GridLayoutDemo implements ActionListener{
+	
+	
+	JTextField txtUser;
+	JPasswordField txtPass;
+	
 	public GridLayoutDemo(){
 		JFrame frame = new JFrame(); //object of frame to be displayed in desktop		
 		
@@ -31,8 +38,8 @@ public class GridLayoutDemo {
 		JLabel lblUser = new JLabel("User Name : ");
 		lblUser.setBackground(Color.BLACK);
 		JLabel lblPass = new JLabel("Password ");
-		JTextField txtUser = new JTextField();
-		JPasswordField txtPass = new JPasswordField();
+		txtUser = new JTextField();
+		txtPass = new JPasswordField();
 	
 		
 		//configured the position and alignment
@@ -60,6 +67,8 @@ public class GridLayoutDemo {
 		
 		frame.add(panel); // adding intermediatory container
 		
+		btnRegister.addActionListener(this);
+	
 		//set layout and make visible
 		frame.pack();
 		frame.setVisible(true);
@@ -67,5 +76,25 @@ public class GridLayoutDemo {
 	public static void main(String[] args) {
 		new GridLayoutDemo();
 		
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+		float cel = Float.parseFloat(txtUser.getText().toString());
+		
+		double fah = 6.7;
+		
+		txtPass.setText(Double.toString(fah));
+		
+		
+		String uName = txtUser.getText().toString();
+		String pass = txtPass.getPassword().toString();
+		
+		
+		
+		
+		JOptionPane.showMessageDialog(null,uName+" "+pass);
+	
 	}
 }

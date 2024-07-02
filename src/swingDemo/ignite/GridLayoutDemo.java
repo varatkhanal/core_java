@@ -9,6 +9,8 @@ import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -67,7 +69,9 @@ public class GridLayoutDemo implements ActionListener{
 		
 		frame.add(panel); // adding intermediatory container
 		
+		//register listener to event source
 		btnRegister.addActionListener(this);
+		btnLogin.addActionListener(this);
 	
 		//set layout and make visible
 		frame.pack();
@@ -80,21 +84,25 @@ public class GridLayoutDemo implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+
+		if() {
+			String uName = txtUser.getText().toString();
+			String pass = txtPass.getPassword().toString();
+			
+			//create object
+			User user = new User(uName,pass);
+			
+			//write in a file
+			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("E://teaching//java//ignite_cred.txt"));
+			oos.writeObject(oos);
+			oos.close();
+			
+			
+		}else if(login button is clicked){
+			//read credentials from file and validate
+		}
 		
-		float cel = Float.parseFloat(txtUser.getText().toString());
-		
-		double fah = 6.7;
-		
-		txtPass.setText(Double.toString(fah));
-		
-		
-		String uName = txtUser.getText().toString();
-		String pass = txtPass.getPassword().toString();
-		
-		
-		
-		
-		JOptionPane.showMessageDialog(null,uName+" "+pass);
+	
 	
 	}
 }

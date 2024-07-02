@@ -9,7 +9,11 @@ import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 import javax.swing.*;
@@ -85,7 +89,7 @@ public class GridLayoutDemo implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 
-		if() {
+		if(e.getActionCommand() == "Register") {
 			String uName = txtUser.getText().toString();
 			String pass = txtPass.getPassword().toString();
 			
@@ -93,13 +97,53 @@ public class GridLayoutDemo implements ActionListener{
 			User user = new User(uName,pass);
 			
 			//write in a file
-			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("E://teaching//java//ignite_cred.txt"));
-			oos.writeObject(oos);
-			oos.close();
+
+			try {
+				ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("E://teaching//java//ignite_cred.ser"));
+				oos.writeObject(user);
+				oos.close();
+			
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			
 			
-		}else if(login button is clicked){
-			//read credentials from file and validate
+			
+		}else if(e.getActionCommand()=="Login"){
+			//read credentials from file
+			try {
+				ObjectInputStream ois = new ObjectInputStream(new FileInputStream("E://teaching//java//ignite_cred.ser"));				
+				User user = (User)ois.readObject();
+				ois.close();
+				
+				String uName = txtUser.getText().toString();
+				String pass = txtPass.getPassword().toString();
+				
+				if(uName.equals(user.getUserName()) || pass.equals(user.getPassword())) {
+					
+					JOptionPane.showMessageDialog(null,user.getUserName()+" is validated");
+				}else {
+					JOptionPane.showMessageDialog(null," Username or password is wrong");
+				}
+				
+				
+				
+			} catch (ClassNotFoundException e1) {
+				e1.printStackTrace();
+			} catch (FileNotFoundException e2) {
+				e2.printStackTrace();
+			}
+			catch (IOException e3) {
+				e3.printStackTrace();
+			}
+			
+			
+			//read cred from UI
+			
+			//perform validation 
+			
+			
 		}
 		
 	

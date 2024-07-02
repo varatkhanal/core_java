@@ -1,6 +1,10 @@
 package swingDemo.ignite;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable{
+
+	private static final long serialVersionUID = 12L;
 	
 	String userName;
 	String password;

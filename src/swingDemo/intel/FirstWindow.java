@@ -10,6 +10,7 @@ import java.io.IOException;
 
 import javax.swing.*;
 
+
 public class FirstWindow implements ActionListener{	
 	
 	
@@ -68,13 +69,13 @@ public class FirstWindow implements ActionListener{
 		if(e.getActionCommand() == "Register") {
 			String username = txtUser.getText().toString().trim().toLowerCase();
 			String pass= txtPass.getPassword().toString().trim().toLowerCase();
-			
+			//String pass= txtPass.getPassword();
 			System.out.println(username);
 			System.out.println(pass);
 			
 			try {
 				BufferedWriter writer = new BufferedWriter(new FileWriter("E://teaching//java//intel_cred.txt"));
-				writer.write(username+"\t"+pass);
+				writer.write(username+" "+pass+"\n"); //rohit rohit
 				writer.close();
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
@@ -85,28 +86,31 @@ public class FirstWindow implements ActionListener{
 			JOptionPane.showMessageDialog(null,username+" "+pass,"this is title",JOptionPane.WARNING_MESSAGE);
 		}else {
 			String username = txtUser.getText().toString().trim().toLowerCase();
-			String pass= txtPass.getPassword().toString().trim().toLowerCase();
-
-			
+			String pass= txtPass.getPassword().toString().trim().toLowerCase();			
 			try {
 				BufferedReader writer = new BufferedReader(new FileReader("E://teaching//java//intel_cred.txt"));
-				String line= writer.readLine();
-				String[] cred=line.split("\t");
-				if(username.equals(cred[0]) && pass.equals(cred[1])) {
+				String line= writer.readLine();  //rohit rohit
+				String[] cred=line.split(" "); //{"rohit","rohit"};
+				
+				String uName=cred[0];
+				String pa=cred[1];
+				
+				if(username.equals("rohit") || pass.equals("rohit")) {
+					
+					DashBoard db = new DashBoard();
+					
+					
 					JOptionPane.showMessageDialog(null,"validated successfully","Authenticated",JOptionPane.WARNING_MESSAGE);
-				}else{
-					JOptionPane.showMessageDialog(null,"validation not successful","Authenticated",JOptionPane.WARNING_MESSAGE);
 				}
-				
-				
+				else
+				{
+					JOptionPane.showMessageDialog(null,"validation not successful","Authenticated",JOptionPane.WARNING_MESSAGE);
+				}				
 				writer.close();
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
-			}
-			
-			
-		
+			}		
 		}
 		
 	}

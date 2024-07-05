@@ -1,4 +1,4 @@
-package swingDemo;
+package stringHandling;
 
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
@@ -59,10 +59,9 @@ public class DashBoard implements ActionListener{
 		textFirst = new JTextField();
 		textLast = new JTextField();
 		//JTextField textGender = new JTextField();	
-		
+		 	
 		JPanel genderPanel =new JPanel();
 		genderPanel.setLayout(new FlowLayout(FlowLayout.LEFT,10,10));
-		
 		
 		rbMale = new JRadioButton("male");
 		rbFemale = new JRadioButton("female");
@@ -163,6 +162,7 @@ public class DashBoard implements ActionListener{
 			try {
 				FileReader fr =new FileReader("E://teaching//HypervisorInfo.txt");
 				BufferedReader br = new BufferedReader(fr);
+				
 				String str=br.readLine();
 				JOptionPane.showMessageDialog(null,str,"info",JOptionPane.INFORMATION_MESSAGE);
 				fr.close();
@@ -171,8 +171,6 @@ public class DashBoard implements ActionListener{
 				ee.printStackTrace();
 				
 			}
-			
-			//
 		}
 		
 	}

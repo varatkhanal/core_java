@@ -21,6 +21,8 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import swingDemo.ignite.DashBoard;
+
 public class DashBoard implements ActionListener{
 	
 	JButton btnAdd;
@@ -215,19 +217,15 @@ public class DashBoard implements ActionListener{
 			user.setProgram(program);
 			user.setBookTaken(book);
 			
-			FileOperation.writeFile(user);
-			try {
-				
-				
+			//FileOperation.writeFile(user);
+			try {				
 				Writer writer = new FileWriter("E://teaching//StudentInfo.txt",true);
 				//write username and password to a file
 				writer.write(fName+"\t"+lName+"\t"+gender+"\t"+program+"\t"+section+"\t"+book+"\n");
 				writer.flush();
 				writer.close();	
 				
-				//database read write
-				
-				
+				//database read write				
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -263,8 +261,7 @@ public class DashBoard implements ActionListener{
 		
 	}
 	public static void main(String[] args) {
-		DashBoard bd = new DashBoard();
-		
+		new DashBoard();
 	}
 	
 

@@ -7,6 +7,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import stringHandling.DashBoard;
+
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.LinkedList;

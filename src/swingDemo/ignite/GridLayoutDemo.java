@@ -1,12 +1,7 @@
 package swingDemo.ignite;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.Graphics;
-import java.awt.GraphicsConfiguration;
 import java.awt.GridLayout;
-import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileInputStream;
@@ -106,29 +101,28 @@ public class GridLayoutDemo implements ActionListener{
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
-			}
-			
-			
+			}		
 			
 		}else if(e.getActionCommand()=="Login"){
-			//read credentials from file
+			
 			try {
+				//read credentials from file
 				ObjectInputStream ois = new ObjectInputStream(new FileInputStream("E://teaching//java//ignite_cred.ser"));				
 				User user = (User)ois.readObject();
 				ois.close();
 				
+				//read credentials  from UI
 				String uName = txtUser.getText().toString();
 				String pass = txtPass.getPassword().toString();
 				
+				//perform validation 
 				if(uName.equals(user.getUserName()) || pass.equals(user.getPassword())) {
 					
 					JOptionPane.showMessageDialog(null,user.getUserName()+" is validated");
 				}else {
 					JOptionPane.showMessageDialog(null," Username or password is wrong");
 				}
-				
-				
-				
+			
 			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
 			} catch (FileNotFoundException e2) {
@@ -137,12 +131,6 @@ public class GridLayoutDemo implements ActionListener{
 			catch (IOException e3) {
 				e3.printStackTrace();
 			}
-			
-			
-			//read cred from UI
-			
-			//perform validation 
-			
 			
 		}
 		

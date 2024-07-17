@@ -7,7 +7,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 public class ObjectOutputStreamExample {
-	    public static void main(String[] args) {
+	    public static void main(String[] args) throws ClassNotFoundException {
 	        Employee emp = new Employee(101,"John Doe", "downstreet",23,986767);
 
 	        try {
@@ -16,12 +16,12 @@ public class ObjectOutputStreamExample {
 	            out.writeObject(emp);
 	             System.out.println("Serialized data is saved in employee.ser");
 	        
-//	             
-//	             FileInputStream fileIn = new FileInputStream("E://teaching//java//employee.ser");;
-//	             ObjectInputStream in = new ObjectInputStream(fileIn);
-//	              Employee employee = (Employee)in.readObject();
-//	              
-//	              System.out.println(employee);
+	             
+	             FileInputStream fileIn = new FileInputStream("E://teaching//java//employee.ser");;
+	             ObjectInputStream in = new ObjectInputStream(fileIn);
+	              Employee employee = (Employee)in.readObject();
+	              
+	              System.out.println(employee);
 	        
 	        } catch (IOException i) {
 	            i.printStackTrace();

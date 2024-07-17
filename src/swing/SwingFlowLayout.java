@@ -1,11 +1,12 @@
 package swing;
 
 import java.awt.FlowLayout;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
-import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class SwingFlowLayout {
@@ -18,15 +19,26 @@ public class SwingFlowLayout {
 
 		
 		//creating buttons
-		JLabel jl = new JLabel("Counter:");
+		JLabel labelRupee = new JLabel("Amount in Rupees:");
 		JTextField countField = new JTextField(10);
-		JButton b1=new JButton("count");
+		String[] currencies = {"Dollar","Pound","Euro","Yen"};
+		JComboBox comboCurrency = new JComboBox(currencies);
+		JLabel labelResult = new JLabel("resut");
 		
-		f.add(jl);
+		countField.addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent ae) {
+				int rupees =(int)ae.getKeyChar();
+				if("Dollar"==(String)comboCurrency.getSelectedItem()) {
+					labelResult.setText(Float.toString((float)(rupees/134.0)));
+				}
+			}
+		});
+		
+		f.add(labelRupee);
 		f.add(countField);
-		f.add(b1);
-		
-		
+		f.add(comboCurrency);
+		f.add(labelResult);
+			
 		//f.setContentPane(p); // finally adding jpanel(child container) to parent container
 		f.setSize(300,100);
 		f.setVisible(true);

@@ -12,7 +12,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
 public class GridLayoutDemo implements ActionListener{
@@ -20,9 +19,10 @@ public class GridLayoutDemo implements ActionListener{
 	
 	JTextField txtUser;
 	JPasswordField txtPass;
+	JFrame frame;
 	
 	public GridLayoutDemo(){
-		JFrame frame = new JFrame(); //object of frame to be displayed in desktop		
+		frame = new JFrame(); //object of frame to be displayed in desktop		
 		
 		frame.setSize(450,400);
 		frame.setTitle("First Window");
@@ -117,8 +117,9 @@ public class GridLayoutDemo implements ActionListener{
 				
 				//perform validation 
 				if(uName.equals(user.getUserName()) || pass.equals(user.getPassword())) {
-					
-					JOptionPane.showMessageDialog(null,user.getUserName()+" is validated");
+					DashBoard db = new DashBoard();
+					frame.dispose();
+					//JOptionPane.showMessageDialog(null,user.getUserName()+" is validated");
 				}else {
 					JOptionPane.showMessageDialog(null," Username or password is wrong");
 				}
@@ -133,8 +134,6 @@ public class GridLayoutDemo implements ActionListener{
 			}
 			
 		}
-		
-	
-	
+
 	}
 }

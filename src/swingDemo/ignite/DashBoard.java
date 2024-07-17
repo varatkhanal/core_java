@@ -182,8 +182,7 @@ public class DashBoard implements ActionListener{
 			try {
 				ObjectOutputStream objectOutput = new ObjectOutputStream(new FileOutputStream("E://teaching//java//intel_dash.ser"));
 			    objectOutput.writeObject(bi);
-			    objectOutput.close();
-			
+			    objectOutput.close();			
 			
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block

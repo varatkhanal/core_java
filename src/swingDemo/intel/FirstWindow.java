@@ -7,6 +7,7 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import swingDemo.ignite.DashBoard;
 
 import javax.swing.*;
 
@@ -95,7 +96,7 @@ public class FirstWindow implements ActionListener{
 				String uName=cred[0];
 				String pa=cred[1];
 				
-				if(username.equals("rohit") || pass.equals("rohit")) {
+				if(username.equals("admin") || pass.equals("admin")) {
 					
 					DashBoard db = new DashBoard();
 					

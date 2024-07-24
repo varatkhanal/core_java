@@ -2,13 +2,16 @@ package swing;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 
-public class SetBoundsDemo implements KeyListener{
+public class SetBoundsDemo implements MouseListener{
 
 	  JTextField fahField;
 	  
@@ -42,7 +45,9 @@ public class SetBoundsDemo implements KeyListener{
 		//jf.add(b1);
 
 		
-		celField.addKeyListener(this);
+		
+		
+		celField.addMouseListener(this);
 		
 		//b1.addActionListener(this); // registering action listener
 		
@@ -62,18 +67,56 @@ public class SetBoundsDemo implements KeyListener{
 	 * method stub int cel = Integer.parseInt(celField.getText().toString()); float
 	 * fah = (float)(9.0/5.0*cel)+32; fahField.setText(Float.toString(fah)); }
 	 */
+//	@Override
+//	public void keyTyped(KeyEvent e) {
+//		if(e.getKeyChar()==KeyEvent.VK_ENTER) {
+//			int d = Integer.parseInt(celField.getText().toString());
+//			float fah = (float)(9.0/5.0*d)+32; fahField.setText(Float.toString(fah)); 
+//			fahField.setText(Double.toString(fah));
+//		}
+//	}
+//	@Override
+//	public void keyPressed(KeyEvent e) {
+//		// TODO Auto-generated method stub		
+//		if(e.getKeyCode() == KeyEvent.VK_DOWN) {
+//			fahField.setText(" down is pressed");
+//		}
+//	}
+//	@Override
+//	public void keyReleased(KeyEvent e) {
+//		// TODO Auto-generated method stub
+//		
+//	}
 	@Override
-	public void keyTyped(KeyEvent e) {
-	
-		fahField.setText(" "+e.getKeyChar());
-	}
-	@Override
-	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub	
-	}
-	@Override
-	public void keyReleased(KeyEvent e) {
+	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+		int d = Integer.parseInt(celField.getText().toString());
+		float fah = (float)(9.0/5.0*d)+32; fahField.setText(Float.toString(fah)); 
+		fahField.setText(Double.toString(fah));
+		
+	}
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		fahField.setText("mouse exited");
+	}
+
+	
+	
 }

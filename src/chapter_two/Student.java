@@ -12,6 +12,13 @@ public class Student {
 	public void setAge(int a) {
 		age=a;
 	}
+	public Student(int roll, int age, String name, String address) {
+
+		this.roll = roll;
+		this.age = age;
+		this.name = name;
+		this.address = address;
+	}
 	public void setRoll(int r) {
 		roll=r;
 	}
